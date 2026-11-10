@@ -4,7 +4,7 @@
 # and tags the speaking cop as OLD CHATGPT.
 set -euo pipefail
 SRC="$1"; CLIP="$2"; OUT="$3"; CS="${4:-0}"; CD="${5:-3.4}"
-A=${A:-8.542}; B=${B:-13.75}
+A=${A:-8.521}; B=${B:-13.75}
 W=$(mktemp -d)
 FB=/usr/share/fonts/opentype/inter/Inter-ExtraBold.otf
 FA=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
