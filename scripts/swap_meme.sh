@@ -26,7 +26,7 @@ ffmpeg -v error -y -ss "$CS" "${DUR_ARGS[@]}" -i "$CLIP" -i "$W/pill.png" -filte
 [v1][1:v]overlay=143:268[v2];
 [v2]drawtext=fontfile=$FM:text='ENDHIRAN (2010) · Rajinikanth':fontsize=26:fontcolor=white:box=1:boxcolor=black@0.75:boxborderw=12:x=52:y=1205,
 drawtext=fontfile=$FB:textfile=$W/cap.txt:fontsize=44:fontcolor=white:line_spacing=14:text_align=center:x=(w-tw)/2:y=1285:shadowcolor=black@0.6:shadowx=2:shadowy=2,
-drawbox=x=16:y=596:w=448:h=64:color=0xC6F35E@1:t=fill,drawtext=fontfile=$FB:text='CHITTI = NEW CHATGPT':fontsize=32:fontcolor=0x111111:x=34:y=611,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='▼':fontsize=46:fontcolor=0xC6F35E:x=48:y=652:shadowcolor=black@0.6:shadowx=2:shadowy=2,drawbox=x=2:y=712:w=150:h=444:color=0xC6F35E@1:t=5,
+drawbox=x=16:y=596:w=448:h=64:color=0xC6F35E@1:t=fill,drawtext=fontfile=$FB:text='CHITTI = NEW CHATGPT':fontsize=32:fontcolor=0x111111:x=34:y=611,drawtext=fontfile=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf:text='▼':fontsize=46:fontcolor=0xC6F35E:x=48:y=652:shadowcolor=black@0.6:shadowx=2:shadowy=2,
 fade=t=in:st=0:d=0.15,format=yuv420p[v];[0:a]volume=3dB,afade=t=in:d=0.05,areverse,afade=t=in:d=0.12,areverse[a]" \
   -map "[v]" -map "[a]" -c:v libx264 -preset medium -crf 18 -c:a aac -ar 48000 -ac 2 -b:a 192k "$W/mid.mp4"
 

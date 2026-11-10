@@ -20,8 +20,7 @@ ffmpeg -v error -y -ss "$CS" -t "$CD" -i "$CLIP" -i "$W/pill.png" -filter_comple
 [b]scale=1080:-2[fg];
 [bg][fg]overlay=0:600[v1];
 [v1][1:v]overlay=160:435[v2];
-[v2]drawbox=x=20:y=606:w=430:h=440:color=$Y@1:t=5,
-drawbox=x=506:y=790:w=400:h=68:color=$Y@1:t=fill,
+[v2]drawbox=x=506:y=790:w=400:h=68:color=$Y@1:t=fill,
 drawtext=fontfile=$FB:text='OLD CHATGPT':fontsize=36:fontcolor=0x111111:x=506+(400-tw)/2:y=806,
 drawtext=fontfile=$FA:text='◀':fontsize=50:fontcolor=$Y:x=458:y=794:shadowcolor=black@0.6:shadowx=2:shadowy=2,
 drawtext=fontfile=$FB:text='\"Correct! Super! Neenga dhaan best!\"':fontsize=44:fontcolor=white:x=(w-tw)/2:y=1380:shadowcolor=black@0.6:shadowx=2:shadowy=2,
