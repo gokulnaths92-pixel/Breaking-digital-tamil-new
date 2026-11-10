@@ -3,7 +3,7 @@
 # Replaces the Thiruvilaiyadal meme (26.0s-30.2s) with the given clip, styled like the original card.
 set -euo pipefail
 SRC="$1"; CLIP="$2"; OUT="$3"; CS="${4:-0}"; CD="${5:-}"
-A=26.0; B=30.2
+A=${A:-26.0}; B=${B:-30.2}
 W=$(mktemp -d)
 FB=/usr/share/fonts/opentype/inter/Inter-ExtraBold.otf
 FM=/usr/share/fonts/truetype/jetbrains-mono/JetBrainsMono-Bold.ttf
