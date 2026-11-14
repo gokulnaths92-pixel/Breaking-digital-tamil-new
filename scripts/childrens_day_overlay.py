@@ -77,22 +77,22 @@ def pill():
     draw_line(t, f, 86, "#3B1F0E", None, 0, 30)
 shadowed(pill)
 
-# 2) HAPPY / Children's Day - subtle white type, soft shadow only
+# 2) HAPPY / Children's Day - big bold white type, soft shadow only
 SEMI = "/usr/share/fonts/opentype/inter/Inter-SemiBold.otf"
 def title():
-    f1 = ImageFont.truetype(SEMI, 30)
+    f1 = ImageFont.truetype(XBOLD, 40)
     t = "H A P P Y"
-    d.text(((W - f1.getlength(t)) / 2, 146), t, font=f1, fill="white")
-    f2 = ImageFont.truetype(SEMI, 64)
+    d.text(((W - f1.getlength(t)) / 2, 140), t, font=f1, fill="white")
+    f2 = ImageFont.truetype(XBOLD, 86)
     t = "Children's Day"
-    d.text(((W - f2.getlength(t)) / 2, 188), t, font=f2, fill="white")
+    d.text(((W - f2.getlength(t)) / 2, 178), t, font=f2, fill="white")
 shadowed(title, 0.85)
 
 # 4) caption
 def caption():
     f = ImageFont.truetype(XBOLD, 38)
-    draw_line("Tag your parents and ask them", f, 316, "white", "black", 4, 0)
-    draw_line("to buy for you 😋❤️", f, 364, "white", "black", 4, 40)
+    draw_line("Tag your parents and ask them", f, 330, "white", "black", 4, 0)
+    draw_line("to buy for you 😋❤️", f, 378, "white", "black", 4, 40)
 shadowed(caption)
 
 layer.save(OUT)
