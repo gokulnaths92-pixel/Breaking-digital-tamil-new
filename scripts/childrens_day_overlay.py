@@ -53,14 +53,14 @@ def draw_line(text, font, y, fill, stroke, sw, esize, cx=W // 2):
             x += e.width + 6
 
 # --- soft shadow helper: draw on separate layer, blur, composite under
-def shadowed(fn):
+def shadowed(fn, k=0.55):
     global layer, d
     base = layer
     tmp = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     layer, d = tmp, ImageDraw.Draw(tmp)
     fn()
     sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sh.putalpha(tmp.getchannel("A").point(lambda a: int(a * 0.55)))
+    sh.putalpha(tmp.getchannel("A").point(lambda a: int(a * k)))
     sh = sh.filter(ImageFilter.GaussianBlur(6))
     out = base.copy()
     out.alpha_composite(sh, (0, 6))
@@ -77,25 +77,16 @@ def pill():
     draw_line(t, f, 86, "#3B1F0E", None, 0, 30)
 shadowed(pill)
 
-# 2) HAPPY
-def happy():
-    f = ImageFont.truetype(BLACK, 50)
-    draw_line("HAPPY", f, 140, "white", "#7B2FF7", 5, 0)
-shadowed(happy)
-
-# 3) CHILDREN'S DAY in rainbow letters
+# 2) HAPPY / Children's Day - subtle white type, soft shadow only
+SEMI = "/usr/share/fonts/opentype/inter/Inter-SemiBold.otf"
 def title():
-    f = ImageFont.truetype(BLACK, 74)
-    text = "CHILDREN'S DAY"
-    colors = ["#FF3B5C", "#FF8A00", "#FFD000", "#2ECC71", "#00B8F0", "#7B2FF7"]
-    x = (W - f.getlength(text)) / 2
-    i = 0
-    for c in text:
-        col = colors[i % len(colors)] if c != " " else "white"
-        if c not in " ": i += 1
-        d.text((x, 200), c, font=f, fill=col, stroke_width=7, stroke_fill="white")
-        x += f.getlength(c)
-shadowed(title)
+    f1 = ImageFont.truetype(SEMI, 30)
+    t = "H A P P Y"
+    d.text(((W - f1.getlength(t)) / 2, 146), t, font=f1, fill="white")
+    f2 = ImageFont.truetype(SEMI, 64)
+    t = "Children's Day"
+    d.text(((W - f2.getlength(t)) / 2, 188), t, font=f2, fill="white")
+shadowed(title, 0.85)
 
 # 4) caption
 def caption():
