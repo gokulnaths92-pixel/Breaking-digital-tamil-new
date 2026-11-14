@@ -18,8 +18,8 @@ ffmpeg -v error -y -i "$CAKE" -i "$MOUSE" -loop 1 -i "$LOGO" -filter_complex "
 [1:v]fps=30,crop=485:351:117:24[ham];
 [bg][ham]overlay=117:24:shortest=1[v1];
 [v1]drawtext=fontfile=$FS:textfile=$W/cap.txt:fontsize=44:fontcolor=black:borderw=3:bordercolor=white:line_spacing=6:text_align=center:x=(w-tw)/2:y=398[v2];
-[2:v]scale=110:-1,format=rgba[logo];
-[v2][logo]overlay=W-w-14:H-h-50:shortest=1,
+[2:v]scale=80:-1,format=rgba[logo];
+[v2][logo]overlay=W-w-20:H-h-50:shortest=1,
 drawtext=fontfile=/usr/share/fonts/opentype/inter/Inter-Bold.otf:text='@cake_n_crumble_03':fontsize=22:fontcolor=white@0.9:borderw=2:bordercolor=black@0.55:x=w-tw-18:y=h-44,format=yuv420p[v]" \
   -map "[v]" -map 1:a -t "$DUR" -c:v libx264 -preset medium -crf 18 -c:a aac -b:a 192k -movflags +faststart "$OUT"
 rm -rf "$W"
