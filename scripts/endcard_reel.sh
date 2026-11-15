@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Usage: endcard_reel.sh <reel.mp4> <output.mp4>
-# Adds the small Cake N Crumble logo + handle (bottom-left) and a 3s brand end card
+# Adds the small Cake N Crumble logo + handle (bottom-right, over the corner sparkle) and a 3s brand end card
 # ("DM for Custom Cakes") with a crossfade.
 set -euo pipefail
 IN="$1"; OUT="$2"
@@ -12,10 +12,10 @@ D=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$IN")
 X=0.5; EC=3
 OFF=$(python3 -c "print($D-$X)"); TOT=$(python3 -c "print($D-$X+$EC)"); AF=$(python3 -c "print($D-0.9)")
 ffmpeg -v error -y -i "$IN" -loop 1 -t $EC -framerate 24 -i "$W/end.png" -loop 1 -i "$LOGO" -filter_complex "
-[2:v]scale=120:-1,format=rgba[lg];
+[2:v]scale=130:-1,format=rgba[lg];
 [0:v]fps=24,setsar=1[m0];
-[m0][lg]overlay=28:H-h-74:shortest=1,
-drawtext=fontfile=/usr/share/fonts/opentype/inter/Inter-Bold.otf:text='@cake_n_crumble_03':fontsize=32:fontcolor=white@0.9:borderw=2:bordercolor=black@0.55:x=30:y=h-62,format=yuv420p[m];
+[m0][lg]overlay=900-w/2:1740-h/2:shortest=1,
+drawtext=fontfile=/usr/share/fonts/opentype/inter/Inter-Bold.otf:text='@cake_n_crumble_03':fontsize=32:fontcolor=white@0.9:borderw=2:bordercolor=black@0.55:x=900-tw/2:y=1818,format=yuv420p[m];
 [1:v]fps=24,scale=1080:1920,setsar=1,format=yuv420p[e];
 [m][e]xfade=transition=fade:duration=$X:offset=$OFF,format=yuv420p[v];
 [0:a]afade=t=out:st=$AF:d=0.9,apad[a]" \
