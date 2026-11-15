@@ -17,7 +17,7 @@ ffmpeg -v error -y -i "$IN" -loop 1 -t $EC -framerate 24 -i "$W/end.png" -loop 1
 [m0][lg]overlay=28:H-h-74:shortest=1,
 drawtext=fontfile=/usr/share/fonts/opentype/inter/Inter-Bold.otf:text='@cake_n_crumble_03':fontsize=32:fontcolor=white@0.9:borderw=2:bordercolor=black@0.55:x=30:y=h-62,format=yuv420p[m];
 [1:v]fps=24,scale=1080:1920,setsar=1,format=yuv420p[e];
-[m][e]xfade=transition=fade:duration=$X:offset=$OFF[v];
+[m][e]xfade=transition=fade:duration=$X:offset=$OFF,format=yuv420p[v];
 [0:a]afade=t=out:st=$AF:d=0.9,apad[a]" \
-  -map "[v]" -map "[a]" -t $TOT -c:v libx264 -preset medium -crf 18 -c:a aac -b:a 192k -movflags +faststart "$OUT"
+  -map "[v]" -map "[a]" -t $TOT -c:v libx264 -preset medium -crf 18 -pix_fmt yuv420p -profile:v high -level 4.1 -c:a aac -b:a 192k -movflags +faststart "$OUT"
 rm -rf "$W"; echo "done: $OUT"
