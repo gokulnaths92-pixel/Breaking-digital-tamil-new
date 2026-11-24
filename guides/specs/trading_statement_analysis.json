@@ -1,0 +1,86 @@
+{
+  "title": "Analyse Your Trading Statement with Claude AI",
+  "subtitle": "A beginner's guide to turning your broker's trade report into clear answers: profit and loss, win rate, best and worst trades, and what to improve. No spreadsheet skills needed.",
+  "footer": "Trading Statement Analysis with Claude: A Beginner's Guide",
+  "info": [
+    ["What you need", "A Claude account (claude.ai or the Claude app) and your trade report file"],
+    ["File types", "CSV, Excel (XLSX) or PDF statements from your broker"],
+    ["Cost", "Works on the free plan for small reports. Paid plans give more usage for big files and long chats."],
+    ["Time", "About 10 minutes for your first analysis"],
+    ["Important", "Educational guide only, not financial or tax advice"]
+  ],
+  "sections": [
+    {"h1": "1. What can Claude do with your statement?"},
+    {"p": "Your broker gives you a <b>tradebook</b> (every buy and sell) and a <b>P&amp;L report</b> (profit and loss). They are long tables that are hard to read. You upload the file to Claude and ask questions in plain English (or Tamil). Claude reads the data, <b>runs real calculations with code</b>, and explains the results, often with charts."},
+    {"table": [["You ask about", "Claude works out"],
+               ["Profit &amp; Loss", "Total, by month, by stock or instrument, and gross vs after charges"],
+               ["Win rate", "How many trades made money vs lost money, as a percentage"],
+               ["Best &amp; worst trades", "Your biggest wins and losses, and what they had in common"],
+               ["Trading performance", "Average win vs average loss, profit factor, longest losing streak, biggest drop"],
+               ["Areas to improve", "Patterns like over-trading, holding losers too long, or one setup losing money"]], "widths": [45, 125]},
+
+    {"h1": "2. Who is this for?"},
+    {"bullets": [
+      "<b>Good fit:</b> intraday, F&amp;O and swing traders who want to understand their own results without building spreadsheets.",
+      "<b>Good fit:</b> investors who want a simple summary of a year of trades.",
+      "<b>Not for:</b> getting buy or sell tips. Claude analyses <b>your past trades</b>. It can't predict the market.",
+      "<b>Not a replacement</b> for your broker's official tax P&amp;L or a chartered accountant at tax time."
+    ]},
+
+    {"h1": "3. Download your trade report"},
+    {"p": "Every broker has a reports section. Download the <b>tradebook</b> for the period you want, as <b>Excel (XLSX) or CSV</b> if possible. Those are easier for Claude to calculate from than PDF."},
+    {"table": [["Broker", "Where to find it"],
+               ["Zerodha", "Console &gt; Reports &gt; Tradebook (choose segment and dates, then download XLSX or CSV). P&amp;L is under Reports &gt; P&amp;L."],
+               ["Other brokers", "Look for Reports, Statements or Tradebook in the web or app menu. Choose a date range and export to Excel or CSV."]], "widths": [35, 135]},
+    {"small": "Zerodha itself advises checking its P&amp;L report against the tradebook and contract notes, because reports are prepared from the data available when you generate them."},
+
+    {"h1": "4. Remove your personal details"},
+    {"callout": "Before uploading, open the file and <b>delete or blank out</b> your name, client ID, PAN, phone number, email, bank details and address. Claude only needs the trade rows: date, symbol, buy/sell, quantity, price and charges. Save it as a new file, e.g. <font name='Courier'>trades_clean.xlsx</font>.", "title": "Protect your data first", "warn": true},
+    {"bullets": [
+      "<b>Check your Claude privacy setting:</b> Settings &gt; Privacy &gt; \"Help improve Claude\". Turn it off if you don't want your chats used to train future models.",
+      "<b>Use an incognito chat</b> for sensitive files. Anthropic says incognito chats aren't used to improve Claude."
+    ]},
+
+    {"h1": "5. Upload and ask"},
+    {"bullets": [
+      "Open <b>claude.ai</b> (or the app) and start a new chat.",
+      "For Excel files, make sure Claude's <b>code execution / file creation</b> feature is turned on in Settings (it's needed to read and calculate XLSX files).",
+      "Click the <b>+</b> or paperclip button, attach your cleaned file, and paste the prompt below."
+    ]},
+    {"h2": "Copy-paste prompt"},
+    {"code": "I'm a trader in India. Attached is my tradebook for [period].\nPlease analyse it and give me:\n1. Total profit/loss, gross and after charges, and by month\n2. Win rate: number of winning vs losing trades\n3. My 5 best and 5 worst trades, and what they have in common\n4. Average win vs average loss, profit factor, longest losing streak\n5. P&L by stock/instrument and by day of the week\n6. 3 specific areas I should improve, based only on this data\nShow your calculations, list any rows you couldn't read,\nand make simple charts. Don't give buy/sell recommendations."},
+    {"p": "Claude matches buys with sells to work out each trade's result. If your file has odd column names, it will ask or explain what it assumed. Read that part."},
+
+    {"h1": "6. Good follow-up questions"},
+    {"table": [["Ask this", "Why it helps"],
+               ["\"How much did brokerage, STT and other charges cost me in total?\"", "Charges quietly eat profits, especially in frequent intraday trading"],
+               ["\"Do I lose more on trades held past my usual exit?\"", "Spots holding losers too long"],
+               ["\"Which time of day or weekday is my worst?\"", "Shows when to trade less"],
+               ["\"What happened after a big loss: did I trade more?\"", "Spots revenge trading"],
+               ["\"Make a one-page summary I can save\"", "Gives you a report to compare month by month"]], "widths": [85, 85]},
+
+    {"h1": "7. Things to know"},
+    {"bullets": [
+      "<b>Double-check the totals.</b> Compare Claude's total P&amp;L with your broker's P&amp;L report. If they differ, ask Claude why (missing rows, charges or open positions are common reasons).",
+      "<b>PDF statements are less reliable</b> than Excel or CSV, because tables can get split across pages. Use XLSX or CSV whenever you can.",
+      "<b>Very large files</b> may hit upload or usage limits. Split by quarter or month, or upload CSV instead of a big Excel file.",
+      "<b>It's analysis, not advice.</b> Claude can show patterns in your past trades. It doesn't know the future, and it isn't a SEBI-registered adviser.",
+      "<b>For tax filing</b>, use your broker's Tax P&amp;L report and a chartered accountant. Claude can help you understand it, but don't file from its numbers alone."
+    ]},
+
+    {"h1": "Quick cheat sheet"},
+    {"table": [["I want to...", "Do this"],
+               ["Get my trades", "Broker reports &gt; Tradebook &gt; download XLSX or CSV"],
+               ["Stay private", "Delete name, PAN, client ID and bank details; use an incognito chat"],
+               ["Analyse", "Upload the file to Claude and paste the prompt from section 5"],
+               ["Check accuracy", "Compare Claude's total with your broker's P&amp;L report"],
+               ["Find my mistakes", "Ask about worst trades, weekdays, holding time and charges"],
+               ["Track progress", "Repeat every month with the same prompt and compare summaries"]], "widths": [50, 120]}
+  ],
+  "sources": [
+    "Claude Help Center: Upload files to Claude (supported file types; XLSX needs code execution and file creation enabled): support.claude.com",
+    "Claude Privacy Center: model improvement (\"Help improve Claude\") setting: privacy.claude.com",
+    "Zerodha Support: Tradebook and P&amp;L reports on Console: support.zerodha.com",
+    "Checked by Breaking Digital Tamil, 24 November 2026. Educational content only, not investment or tax advice."
+  ]
+}
