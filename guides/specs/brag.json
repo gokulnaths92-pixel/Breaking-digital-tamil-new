@@ -1,0 +1,260 @@
+{
+ "title": "Brag",
+ "subtitle": "A beginner's guide to /brag, the free AI agent skill that turns a project you built into a short launch video with music, motion and ready-to-post captions.",
+ "footer": "Brag: A Beginner's Guide",
+ "info": [
+  [
+   "Version covered",
+   "brag 0.6.0 (updated 15 November 2026)"
+  ],
+  [
+   "Official repo",
+   "github.com/latent-spaces/brag (other projects called \"brag\" are unrelated)"
+  ],
+  [
+   "Made by",
+   "Shunit Haviv Hakimi (latent-spaces). MIT licence."
+  ],
+  [
+   "Cost",
+   "Free and open source. You pay only for your AI agent (e.g. a Claude plan)."
+  ],
+  [
+   "Works with",
+   "Claude Code, Codex, Cursor, Copilot, Gemini CLI, opencode and other agents"
+  ]
+ ],
+ "sections": [
+  {
+   "h1": "1. What is Brag?"
+  },
+  {
+   "p": "You build an app or website with AI. Now you want to show it off on X, LinkedIn or Instagram. <b>/brag</b> is a skill you add to your AI coding agent. Type <font name='Courier'>/brag</font> inside your project and the agent <b>reads your code</b>, plans a story, and makes a <b>15 to 25 second launch video</b> with a soundtrack, sound effects and a short caption to post with it."
+  },
+  {
+   "p": "Think of it as a <b>video editor that already understands your product</b>, because it read the code instead of watching a screen recording."
+  },
+  {
+   "h2": "Two versions in one package"
+  },
+  {
+   "table": [
+    [
+     "Command",
+     "How it works",
+     "Best for"
+    ],
+    [
+     "<font name='Courier'>/brag</font>",
+     "Plans the story, then hands a brief to <b>Hyperframes</b> (a video tool by HeyGen), which builds and renders the video",
+     "Any AI model; also needed for voiceover"
+    ],
+    [
+     "<font name='Courier'>/brag-slim</font>",
+     "The agent builds the whole video itself. No Hyperframes, no bundled assets",
+     "Claude Opus 5.5, Sonnet 5.5 and Fable 5.2 (picked automatically on these)"
+    ]
+   ],
+   "widths": [
+    30,
+    88,
+    52
+   ]
+  },
+  {
+   "h1": "2. Who should use it?"
+  },
+  {
+   "bullets": [
+    "<b>Good fit:</b> vibe coders, indie makers and founders who want a polished launch clip for a project they built.",
+    "<b>Good fit:</b> creators who show off AI-built apps on Reels, Shorts or X. It supports vertical 9:16 videos.",
+    "<b>Not for:</b> editing your own camera footage or talking-head reels. It makes videos about a code project.",
+    "<b>Don't want to install anything?</b> The makers also run <b>letsbrag.app</b>: paste your site's link and it makes the video for you."
+   ]
+  },
+  {
+   "h1": "3. Before you start"
+  },
+  {
+   "bullets": [
+    "<b>An AI agent that supports skills:</b> Claude Code, Codex, Cursor, opencode and similar.",
+    "<b>Node.js 22 or newer</b> (nodejs.org).",
+    "<b>FFmpeg</b> installed and available in your terminal (it creates the video file).",
+    "<b>Hyperframes CLI</b> for the full <font name='Courier'>/brag</font>: check it with <font name='Courier'>npx hyperframes doctor</font>.",
+    "<b>A project folder</b> with your website or app code."
+   ]
+  },
+  {
+   "h1": "4. Install"
+  },
+  {
+   "h2": "Claude Code (includes /brag and /brag-slim)"
+  },
+  {
+   "code": "/plugin marketplace add latent-spaces/brag\n/plugin install brag@brag"
+  },
+  {
+   "h2": "Codex"
+  },
+  {
+   "code": "codex plugin marketplace add latent-spaces/brag\ncodex plugin add brag@brag"
+  },
+  {
+   "h2": "Any other agent (Cursor, Copilot, Gemini CLI, opencode...)"
+  },
+  {
+   "code": "npx skills add https://github.com/latent-spaces/brag --skill brag\n\n# only the lighter version:\nnpx skills add https://github.com/latent-spaces/brag --skill brag-slim"
+  },
+  {
+   "small": "Add <font name='Courier'>-g</font> to the npx command to install it for every project. Restart your agent after installing. Windows users who copy the repo manually need Git symlinks enabled, or should copy the <font name='Courier'>skills/brag/</font> folder by hand."
+  },
+  {
+   "h1": "5. First use"
+  },
+  {
+   "p": "Open your project in your agent and type:"
+  },
+  {
+   "code": "let's /brag"
+  },
+  {
+   "p": "Or steer it:"
+  },
+  {
+   "code": "/brag --tone \"fake Series A launch from 2016\"\n/brag --format vertical          # 9:16 for Reels, Shorts, TikTok\n/brag --voice                    # add an AI voiceover (full /brag only)"
+  },
+  {
+   "p": "When it finishes you get a <font name='Courier'>brag-output/</font> folder:"
+  },
+  {
+   "table": [
+    [
+     "File",
+     "What it is"
+    ],
+    [
+     "<font name='Courier'>brag.mp4</font>",
+     "The finished video (1920x1080, 1080x1920 or 1080x1080, 30 fps)"
+    ],
+    [
+     "<font name='Courier'>brag.jpg</font>",
+     "The best frame, used as the thumbnail"
+    ],
+    [
+     "<font name='Courier'>share-copy.txt</font>",
+     "1 to 3 sentences ready to post with the video"
+    ],
+    [
+     "<font name='Courier'>brag-plan.md</font>",
+     "The story plan and storyboard, so you can ask for changes"
+    ]
+   ],
+   "widths": [
+    45,
+    125
+   ]
+  },
+  {
+   "h1": "6. Options you can use"
+  },
+  {
+   "table": [
+    [
+     "Option",
+     "What it does",
+     "Default"
+    ],
+    [
+     "<font name='Courier'>--tone</font>",
+     "Style: polished, yc-parody, chaotic, deadpan, cinematic, app-store, or your own words",
+     "Picked from your project"
+    ],
+    [
+     "<font name='Courier'>--format</font>",
+     "landscape, vertical or square",
+     "landscape"
+    ],
+    [
+     "<font name='Courier'>--duration</font>",
+     "Length in seconds",
+     "About 15 to 25 s"
+    ],
+    [
+     "<font name='Courier'>--title</font>",
+     "The product name shown in the video",
+     "From your project"
+    ],
+    [
+     "<font name='Courier'>--voice</font>",
+     "Adds narration (Kokoro voice through Hyperframes)",
+     "Off"
+    ]
+   ],
+   "widths": [
+    40,
+    90,
+    40
+   ]
+  },
+  {
+   "h1": "7. Things to know"
+  },
+  {
+   "callout": "The video is meant to be posted publicly. The skill is told to skip secrets, keys, .env files and real customer data, and to swap in made-up names if your app shows personal data. Still <b>watch the whole video and read the caption before posting</b>, especially for client or work projects.",
+   "title": "Check before you post",
+   "warn": true
+  },
+  {
+   "bullets": [
+    "<b>It uses your AI usage.</b> Reading the code, planning and building a video takes many agent steps, so expect it to use a good share of your plan or API credits.",
+    "<b>Rendering needs FFmpeg</b> (and Hyperframes for the full version). Most install problems come from these, so run <font name='Courier'>npx hyperframes doctor</font> first.",
+    "<b>Music is licensed.</b> The bundled track is from ende.app under CC BY 4.0 and the sound effects are from Kenney. CC BY means giving credit when you post.",
+    "<b>Actively maintained:</b> updated in November 2026, with tens of thousands of GitHub stars."
+   ]
+  },
+  {
+   "h1": "Quick cheat sheet"
+  },
+  {
+   "table": [
+    [
+     "I want to...",
+     "Do this"
+    ],
+    [
+     "Install in Claude Code",
+     "<font name='Courier'>/plugin marketplace add latent-spaces/brag</font> then <font name='Courier'>/plugin install brag@brag</font>"
+    ],
+    [
+     "Make a video",
+     "Open your project and type <font name='Courier'>let's /brag</font>"
+    ],
+    [
+     "Make a Reel / Short",
+     "<font name='Courier'>/brag --format vertical</font>"
+    ],
+    [
+     "Change the vibe",
+     "<font name='Courier'>/brag --tone \"cinematic\"</font> (or describe any style)"
+    ],
+    [
+     "Add a voiceover",
+     "<font name='Courier'>/brag --voice</font>"
+    ],
+    [
+     "Skip installing",
+     "Paste your site link at letsbrag.app"
+    ]
+   ],
+   "widths": [
+    50,
+    120
+   ]
+  }
+ ],
+ "sources": [
+  "Brag README, plugin.json (v0.6.0) and skills/brag, skills/brag-slim: github.com/latent-spaces/brag",
+  "Launch site: latent-spaces.github.io/brag · Hosted version: letsbrag.app · Hyperframes: hyperframes.heygen.com",
+  "Checked by Breaking Digital Tamil, 24 November 2026."
+ ]
+}
