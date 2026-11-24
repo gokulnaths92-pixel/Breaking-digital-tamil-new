@@ -1,0 +1,28 @@
+{
+  "title": "OmniRoute",
+  "subtitle": "A beginner's guide to using many AI models through one free gateway, and keeping your work going by switching models automatically when one runs out.",
+  "footer": "OmniRoute: A Beginner's Guide",
+  "info": [
+    ["Version covered", "OmniRoute 3.8.55 (November 2026)"],
+    ["Official repo", "github.com/diegosouzapw/OmniRoute"],
+    ["Cost", "Free and open source (MIT licence). You pay only for paid providers you choose to add."],
+    ["Runs on", "Your own computer (Windows, Mac, Linux), a server, or Docker"]
+  ],
+  "sections": [
+    {"h1": "1. What is OmniRoute?"},
+    {"p": "Think of OmniRoute as a <b>switchboard for AI models</b>. It gives you <b>one single address</b> that all your AI tools can talk to, and decides which model answers each request."},
+    {"h2": "Why that matters for a beginner:"},
+    {"bullets": ["<b>One setup, many models.</b> Connect a provider once and every tool can use it.",
+                 "<b>Automatic switching.</b> If one model hits its limit, OmniRoute moves to the next."]},
+    {"h1": "2. The honest truth about \"unlimited\""},
+    {"callout": "No AI provider gives truly unlimited free use. OmniRoute <b>stacks free tiers</b> and switches between them automatically.", "title": "Read this first"},
+    {"h1": "3. Install"},
+    {"code": "npm install -g omniroute\nomniroute"},
+    {"h1": "4. Quick cheat sheet"},
+    {"table": [["I want to...", "Do this"],
+               ["Install", "<font name='Courier'>npm install -g omniroute</font>"],
+               ["Open the dashboard", "http://localhost:20128"]], "widths": [62, 108]},
+    {"callout": "Use one account per provider unless its terms allow more.", "title": "Stay safe", "warn": true}
+  ],
+  "sources": ["OmniRoute README, version 3.8.55: github.com/diegosouzapw/OmniRoute"]
+}
